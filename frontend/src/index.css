@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+:root {
+  --surface: #f8f9fb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --surface-container: #eceef0;
+  --surface-container-high: #e6e8ea;
+  --surface-container-highest: #e0e3e5;
+  --on-surface: #191c1e;
+  --on-surface-variant: #414752;
+  --outline: #727783;
+  --outline-variant: #c1c6d3;
+  /* Arc en Ciel brand — blue + gold, taken from the association logo */
+  --primary: #1b4f91;
+  --on-primary: #ffffff;
+  --primary-container: #2e6cc4;
+  --primary-fixed-dim: #aecbef;
+  --secondary: #dc9f0d;
+  --on-secondary: #2a1c00;
+  --secondary-container: #8a6200;
+  --on-secondary-container: #fff6e0;
+  --tertiary: #005969;
+  --on-tertiary: #ffffff;
+  --tertiary-fixed-dim: #f5c518;
+  --error: #ba1a1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--on-surface);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-color: var(--surface);
+  background-image:
+    radial-gradient(at 40% 20%, rgba(213, 227, 255, 0.55) 0px, transparent 50%),
+    radial-gradient(at 85% 0%, rgba(255, 233, 176, 0.4) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(226, 223, 255, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(166, 200, 255, 0.4) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(255, 224, 130, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(213, 227, 255, 0.4) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, .display {
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+}
+
+::selection {
+  background: #bfdbfe;
+  color: #1e3a8a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ---------- Glass surfaces ---------- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(27, 79, 145, 0.05), 0 2px 8px 0 rgba(27, 79, 145, 0.1);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(27, 79, 145, 0.15);
+}
+
+/* ---------- Interaction polish ---------- */
+.btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+.btn:hover {
+  transform: scale(1.045);
+}
+.btn:active {
+  transform: scale(0.99);
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -16px rgba(15, 23, 42, 0.22);
+  border-color: #cbd5e1;
+}
+
+.nav-link {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pop-in {
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-14px) translateX(6px); }
+}
+@keyframes floatSlower {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(12px); }
+}
+
+/* ---------- Discovery grant grid ---------- */
+.grant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Toasts ---------- */
+.toast-enter { animation: toastIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.toast-leave { animation: toastOut 0.2s ease-in both; }
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(24px) scale(0.97); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes toastOut {
+  to { opacity: 0; transform: translateX(24px) scale(0.97); }
+}
+@keyframes toastTimer {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+/* ---------- Scan progress modal ---------- */
+.modal-backdrop { animation: backdropIn 0.25s ease both; }
+@keyframes backdropIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-panel { animation: modalIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.spin { animation: spin 1s linear infinite; }
+.spin-slow { animation: spin 6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.pulse-soft { animation: pulseSoft 1.6s ease-in-out infinite; }
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.92); }
+}
+
+.check-pop { animation: checkPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes checkPop {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.count-up { animation: countUp 0.4s ease both; }
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.progress-stripes {
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.25) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.25) 75%, transparent 75%, transparent);
+  background-size: 18px 18px;
+  animation: stripes 0.8s linear infinite;
+}
+@keyframes stripes { to { background-position: 18px 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .spin, .spin-slow, .pulse-soft, .progress-stripes { animation: none; }
+  .toast-enter, .toast-leave, .modal-panel, .modal-backdrop, .check-pop, .count-up { animation-duration: 0.01ms; }
+}
+
+/* ---------- Loading skeleton ---------- */
+.skeleton {
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--surface-container) 25%, var(--surface-container-lowest) 50%, var(--surface-container) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.3s ease-in-out infinite;
+}
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
+
+/* Keyboard focus ring only (no ring after mouse clicks / programmatic focus). */
+.btn:focus { outline: none; }
+.btn:focus-visible { outline: 3px solid rgba(27, 79, 145, 0.45); outline-offset: 2px; }

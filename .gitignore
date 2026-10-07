@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+backend/.env
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Alembic
+backend/alembic/versions/*.pyc
+
+# Runtime data (SQLite DB with user emails, Qdrant index) and logs
+backend/data/*.db
+backend/data/qdrant_local/
+*.log
+*.err
+
+# Keep the data folder (SQLite needs it to exist) but none of its contents
+backend/data/*
+!backend/data/.gitkeep
+
+# Design mockups (kept locally, not part of the app)
+_stitch_design/
+stitch_grant_discovery_platform/
+*.zip
+
+# Local Claude Code settings
+.claude/settings.local.json
